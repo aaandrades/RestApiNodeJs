@@ -1,7 +1,7 @@
 import express from "express";
-const app = express();
+import "./config/config";
 
-const port: string | number = process.env.PORT || 5000;
+const app = express();
 
 app.use(express.json());
 app.use(
@@ -38,6 +38,7 @@ app.delete("/users", (rq, res) => {
   res.json("delete user");
 });
 
-
 //create a server object:
-app.listen(port, () => console.log(`hosting @${port}`));
+app.listen(process.env.PORT, () =>
+  console.log(`Starting server in PORT: ${process.env.PORT}`)
+);
