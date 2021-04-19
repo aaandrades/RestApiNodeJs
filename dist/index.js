@@ -4,9 +4,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+require("./config/config");
+const mongoose_1 = __importDefault(require("mongoose"));
+// Initialize the serve
 const app = express_1.default();
-const port = process.env.PORT || 5000;
-app.use("*", (req, res) => { res.send("<h1>Welcome to your server!</h1>"); });
-//create a server object:
-app.listen(port, () => console.log(`hosting @${port}`));
+// Decoding and encode
+app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({
+    extended: true,
+}));
+// Importing routes (Controller)
+app.use(require('./routes/routes'));
+// Conect to mongoose
+mongoose_1.default.connect("mongodb://localhost:27017/cafe", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}, (err) => {
+    if (err)
+        throw err;
+    console.log("Database Working");
+});
+// create a server instance:
+app.listen(process.env.PORT, () => console.log(`Starting server in PORT: ${process.env.PORT}`));
 //# sourceMappingURL=index.js.map
