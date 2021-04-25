@@ -10,6 +10,9 @@
     "noImplicitAny": true,
     "moduleResolution": "node",
     "sourceMap": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "types": [
+      "underscore"
+    ]
   }
 }
