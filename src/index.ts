@@ -5,7 +5,6 @@ import mongoose from "mongoose";
 // Initialize the serve
 const app = express();
 
-
 // Decoding and encode
 app.use(express.json());
 app.use(
@@ -15,13 +14,14 @@ app.use(
 );
 
 // Importing routes (Controller)
-app.use(require('./routes/routes'));
+app.use(require("./routes/routes"));
 
 // Conect to mongoose
 mongoose.connect(
-  "mongodb://localhost:27017/cafe",
+  process.env.URLDB,
   {
     useNewUrlParser: true,
+    useCreateIndex: true,
     useUnifiedTopology: true,
   },
   (err) => {

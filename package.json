@@ -13,10 +13,10 @@
     "author": "Andrés Andrade <aaandrades@outlook.com>",
     "license": "ISC",
     "dependencies": {
-        "@types/underscore": "^1.11.1",
+        "@types/underscore": "^1.11.2",
         "bcrypt": "^5.0.1",
         "express": "^4.17.1",
-        "mongoose": "^5.2.8",
+        "mongoose": "^5.12.5",
         "mongoose-unique-validator": "^2.0.3",
         "ts-node": "^8.10.2",
         "underscore": "^1.13.1"
