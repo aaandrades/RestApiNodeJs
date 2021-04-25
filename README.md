@@ -9,14 +9,16 @@ A Rest API build with Typescript implementing a CRUD in MongoDB. You will find s
 ### :sparkles: Features
 - JWT authentication.
 - CRUD operations.
+- Handle Enviroments
 - Encrypted Password (Hash one-way)
 
 ### :alembic: Core Concepts
 - Typescript (Interfaces, typed, imports, etc)
 - API REST HTTP
-- Security (JWT)
+- Security (JWT, Private Secrets)
 - Non-relational Database
 - MVC 
+- Enviromental Concepts
 
 ### :construction: Made with
 - Typescript
@@ -26,7 +28,8 @@ A Rest API build with Typescript implementing a CRUD in MongoDB. You will find s
 - JWT
 - mongoose-unique-validator
 - bcrypt
-  
+- mLab - MongoAtlas
+
 ### :hammer: Demostration
 Put here the video or link to demo the App.
 
