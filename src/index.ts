@@ -14,7 +14,7 @@ app.use(
 );
 
 // Importing routes (Controller)
-app.use(require("./routes/routes"));
+app.use(require("./routes/controller"));
 
 // Conect to mongoose
 mongoose.connect(
@@ -26,7 +26,7 @@ mongoose.connect(
   },
   (err) => {
     if (err) throw err;
-    console.log("Database Working");
+    console.log("Database ONLINE");
   }
 );
 

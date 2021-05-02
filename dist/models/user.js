@@ -21,6 +21,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserModel = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
+const rolesTypeEnums_1 = require("../utils/rolesTypeEnums");
+// Import in typescript isn't working, TODO: Change require to import.
+const mongooseUniqueValidator = require("mongoose-unique-validator");
 let userSchema = new mongoose_1.Schema({
     name: {
         type: String,
@@ -29,7 +32,6 @@ let userSchema = new mongoose_1.Schema({
     email: {
         type: String,
         unique: true,
-        // index: { unique: true, dropDups: true },
         required: [true, "The Email its mandatory"],
     },
     password: {
@@ -44,6 +46,7 @@ let userSchema = new mongoose_1.Schema({
         type: String,
         default: "USER_ROLE",
         required: false,
+        enum: rolesTypeEnums_1.validRols,
     },
     state: {
         type: Boolean,
@@ -56,7 +59,10 @@ let userSchema = new mongoose_1.Schema({
         required: false,
     },
 });
-const Foo = mongoose_1.default.model("user", userSchema);
-Foo.createIndexes();
-exports.UserModel = Foo;
+// Validate that email must be unique
+userSchema.plugin(mongooseUniqueValidator, {
+    message: "{PATH} must be unique.",
+});
+// Create and export a model using IUser interface
+exports.UserModel = mongoose_1.default.model("Users", userSchema);
 //# sourceMappingURL=user.js.map

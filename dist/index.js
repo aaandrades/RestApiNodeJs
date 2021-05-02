@@ -14,15 +14,16 @@ app.use(express_1.default.urlencoded({
     extended: true,
 }));
 // Importing routes (Controller)
-app.use(require('./routes/routes'));
+app.use(require("./routes/controller"));
 // Conect to mongoose
-mongoose_1.default.connect("mongodb://localhost:27017/cafe", {
+mongoose_1.default.connect(process.env.URLDB, {
     useNewUrlParser: true,
+    useCreateIndex: true,
     useUnifiedTopology: true,
 }, (err) => {
     if (err)
         throw err;
-    console.log("Database Working");
+    console.log("Database ONLINE");
 });
 // create a server instance:
 app.listen(process.env.PORT, () => console.log(`Starting server in PORT: ${process.env.PORT}`));
