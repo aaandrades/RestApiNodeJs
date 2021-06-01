@@ -32,5 +32,8 @@ mongoose.connect(
 
 // create a server instance:
 app.listen(process.env.PORT, () =>
+{
+  console.log("MONGO BD URI: ",process.env.URLDB);
   console.log(`Starting server in PORT: ${process.env.PORT}`)
+}
 );

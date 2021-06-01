@@ -1,0 +1,31 @@
+[{
+        "_id": "ObjectId('607fa5138cc4b42e6c62b909')",
+        "role": "USER_ROLE",
+        "state": true,
+        "google": false,
+        "name": "Registro 15",
+        "email": "correotest15@gmail.co",
+        "password": "$2b$10$.eVY2GmO3/OVfSXCTGIFXuaxiq18QXALSuhWPkrt19G1Mdub/9iny",
+        "__v": 0
+    },
+    {
+        "_id": "ObjectId('607fa5248cc4b42e6c62b90a')",
+        "role": "USER_ROLE",
+        "state": false,
+        "google": false,
+        "name": "Andres Andrade",
+        "email": "aaandradess@outlook.com",
+        "password": "$2b$10$8nH20ifQjbaXrkiA4rjhpu68nagA5h7NFijsPQxnsvSQnOqcajQ/m",
+        "__v": 0
+    },
+    {
+        "_id": "ObjectId('608607b2f4d4271af48b895b')",
+        "role": "ADMIN_ROLE",
+        "state": true,
+        "google": false,
+        "name": "Registro Prueba Jwt",
+        "email": "prueba1@outlook.com",
+        "password": "$2b$10$hLuQ.Ke2Xcm2V4M4u2H8Ie9j5ywey4/8udWaf2APY2Uy7tA2JfN4e",
+        "__v": 0
+    }
+]

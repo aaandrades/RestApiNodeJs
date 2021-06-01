@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  db:
+    container_name: mongoDB
+    image: mongo:latest
+    volumes:
+        - ./backup:/data/db      
+    environment: 
+        MONGO_INITDB_DATABASE: cafe
+    ports:
+        - 27017:27017
+    restart: unless-stopped
+            
+  node-rest-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    volumes:
+      - ./src:/home/node/app/src
+      - ./nodemon.json:/home/node/app/nodemon.json
+    container_name: node-rest-server
+    depends_on: 
+      - db
+    expose:
+      - '4000'
+    ports:
+      - '4000:4000'
+    command: npm run dev
+  

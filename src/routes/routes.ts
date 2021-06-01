@@ -21,7 +21,6 @@ app.get("/", (rq, res) => {
 app.post(
   "/users",
   // Verify two conditions
-  [verifyTokenMiddleware, verifyAdminRole],
   (rq, res) => {
     let body = rq.body;
     let usuario = new UserModel({

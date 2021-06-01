@@ -26,6 +26,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const user_1 = require("../models/user");
 const _ = __importStar(require("underscore"));
+const authentication_1 = require("../middlewares/authentication");
 // Import in typescript isn't working, TODO: Change require to import.
 const bcrypt = require("bcrypt");
 const app = express_1.default();
@@ -34,7 +35,9 @@ app.get("/", (rq, res) => {
     res.send("<h1>Welcome to your server!</h1>");
 });
 // CREATE
-app.post("/users", (rq, res) => {
+app.post("/users", 
+// Verify two conditions
+[authentication_1.verifyTokenMiddleware, authentication_1.verifyAdminRole], (rq, res) => {
     let body = rq.body;
     let usuario = new user_1.UserModel({
         name: body.name,
@@ -51,7 +54,7 @@ app.post("/users", (rq, res) => {
     });
 });
 // UPDATE
-app.put("/users/:id", (rq, res) => {
+app.put("/users/:id", [authentication_1.verifyTokenMiddleware, authentication_1.verifyAdminRole], (rq, res) => {
     let id = rq.params.id;
     let body = _.pick(rq.body, ["name", "img", "email", "role", "state"]);
     user_1.UserModel.findByIdAndUpdate(id, body, { new: true, runValidators: true, context: "query" }, (err, usuarioDB) => {
@@ -61,7 +64,7 @@ app.put("/users/:id", (rq, res) => {
     });
 });
 // GET ALL USER - PAGINATED (Actives)
-app.get("/users", (rq, res) => {
+app.get("/users", authentication_1.verifyTokenMiddleware, (rq, res) => {
     const since = rq.query.since || 0;
     const limit = rq.query.limit || 10;
     // Just return this values
@@ -83,7 +86,7 @@ app.get("/users", (rq, res) => {
     });
 });
 // DELETE ENTIRE RECORD
-app.delete("/users/:id", (rq, res) => {
+app.delete("/users/:id", [authentication_1.verifyTokenMiddleware, authentication_1.verifyAdminRole], (rq, res) => {
     let id = rq.params.id;
     user_1.UserModel.findByIdAndDelete(id, {}, (err, user) => {
         return err
@@ -94,7 +97,7 @@ app.delete("/users/:id", (rq, res) => {
     });
 });
 // DELETE BY CHANGE A FIELD
-app.delete("/users/updateStatus/:id", (rq, res) => {
+app.delete("/users/updateStatus/:id", [authentication_1.verifyTokenMiddleware, authentication_1.verifyAdminRole], (rq, res) => {
     const id = rq.params.id;
     const body = _.pick(rq.body, ["state"]);
     user_1.UserModel.findByIdAndUpdate(id, body, { new: true, runValidators: true, context: "query" }, (err, usuarioDB) => {
