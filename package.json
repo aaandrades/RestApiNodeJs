@@ -15,6 +15,7 @@
     "dependencies": {
         "@types/underscore": "^1.11.2",
         "bcrypt": "^5.0.1",
+        "cors": "^2.8.5",
         "express": "^4.17.1",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^5.12.5",
@@ -23,6 +24,7 @@
         "underscore": "^1.13.1"
     },
     "devDependencies": {
+        "@types/cors": "^2.8.12",
         "@types/express": "^4.17.11",
         "@types/jsonwebtoken": "^8.5.1",
         "@types/node": "^14.14.41",

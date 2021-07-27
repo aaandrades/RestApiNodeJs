@@ -1,9 +1,13 @@
 import express from "express";
 import "./config/config";
 import mongoose from "mongoose";
+import cors from 'cors';
 
 // Initialize the serve
 const app = express();
+
+// Enabling cors
+app.use(cors());
 
 // Decoding and encode
 app.use(express.json());
