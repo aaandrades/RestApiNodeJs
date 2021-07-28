@@ -8,6 +8,7 @@
         "start": "ts-node src/index.ts",
         "postinstall": "tsc",
         "dev": "nodemon -x ts-node src/index.ts",
+        "deploy:heroku": "git push heroku master",
         "build": "tsc -p ."
     },
     "author": "Andrés Andrade <aaandrades@outlook.com>",
