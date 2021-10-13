@@ -41,7 +41,7 @@ app.post(
 );
 
 // UPDATE
-app.put("/users/:id", [verifyTokenMiddleware, verifyAdminRole], (rq, res) => {
+app.put("/users/:id", [verifyTokenMiddleware], (rq, res) => {
   let id = rq.params.id;
   let body = _.pick(rq.body, ["name", "img", "email", "role", "state"]);
 
