@@ -16,12 +16,6 @@ urlDB =
         : process.env.MONGO_URI;
 process.env.URLDB = urlDB;
 // ==============
-// EXPIRE TOKEN
-// ==============
-// 60 seconds
-// 60 minutes
-process.env.CADUCITY_TOKEN = (60 * 60 * 60).toString();
-// ==============
 // TOKEN SEED
 // ==============
 let token_seed = process.env.NODE_END === "dev"
