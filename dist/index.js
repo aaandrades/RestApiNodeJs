@@ -20,6 +20,7 @@ app.use(express_1.default.urlencoded({
 app.use(require("./routes/controller"));
 // Conect to mongoose
 mongoose_1.default.connect(process.env.URLDB, {
+    dbName: "cafe",
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
