@@ -6,8 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 require("./config/config");
 const mongoose_1 = __importDefault(require("mongoose"));
+const cors_1 = __importDefault(require("cors"));
 // Initialize the serve
 const app = express_1.default();
+// Enabling cors
+app.use(cors_1.default());
 // Decoding and encode
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({
@@ -26,5 +29,7 @@ mongoose_1.default.connect(process.env.URLDB, {
     console.log("Database ONLINE");
 });
 // create a server instance:
-app.listen(process.env.PORT, () => console.log(`Starting server in PORT: ${process.env.PORT}`));
+app.listen(process.env.PORT, () => {
+    console.log(`Starting server in PORT: ${process.env.PORT}`);
+});
 //# sourceMappingURL=index.js.map

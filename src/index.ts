@@ -1,7 +1,7 @@
 import express from "express";
 import "./config/config";
 import mongoose from "mongoose";
-import cors from 'cors';
+import cors from "cors";
 
 // Initialize the serve
 const app = express();
@@ -24,6 +24,7 @@ app.use(require("./routes/controller"));
 mongoose.connect(
   process.env.URLDB,
   {
+    dbName: "cafe",
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -35,9 +36,6 @@ mongoose.connect(
 );
 
 // create a server instance:
-app.listen(process.env.PORT, () =>
-{
-  console.log("MONGO BD URI: ",process.env.URLDB);
-  console.log(`Starting server in PORT: ${process.env.PORT}`)
-}
-);
+app.listen(process.env.PORT, () => {
+  console.log(`Starting server in PORT: ${process.env.PORT}`);
+});

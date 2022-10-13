@@ -49,11 +49,12 @@ app.post("/login", (req, res) => {
         // Create JWT and return token and userInfo.
         let token = jwt.sign({
             user: userDB,
-        }, process.env.SEED, { expiresIn: process.env.CADUCITY_TOKEN });
+        }, process.env.SEED, {});
         res.status(200).json({
             ok: true,
             user: userDB,
             token,
+            tokenApi: 'k_07j13ga2'
         });
     });
 });

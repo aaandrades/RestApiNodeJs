@@ -12,9 +12,16 @@ process.env.NODE_ENV = process.env.NODE_ENV || "dev";
 let urlDB;
 urlDB =
     process.env.NODE_ENV === "dev"
-        ? "mongodb://localhost:27017/cafe"
+        ? // ? "mongodb://localhost:27017/cafe"
+            "mongodb+srv://aaandrades:4ZRaZyU5qbPYu9ds@cluster0.rvoig.mongodb.net/test"
         : process.env.MONGO_URI;
 process.env.URLDB = urlDB;
+// ==============
+// EXPIRE TOKEN
+// ==============
+// 60 seconds
+// 60 minutes
+process.env.CADUCITY_TOKEN = (60 * 60 * 60).toString();
 // ==============
 // TOKEN SEED
 // ==============

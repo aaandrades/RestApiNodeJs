@@ -58,7 +58,7 @@ app.put("/users/:id", [verifyTokenMiddleware], (rq, res) => {
 });
 
 // GET ALL USER - PAGINATED (Actives)
-app.get("/users", verifyTokenMiddleware, (rq, res) => {
+app.get("/users", (rq, res) => {
   const since = rq.query.since || 0;
   const limit = rq.query.limit || 10;
 

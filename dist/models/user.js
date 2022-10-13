@@ -46,7 +46,7 @@ let userSchema = new mongoose_1.Schema({
         type: String,
         default: "USER_ROLE",
         required: false,
-        enum: rolesTypeEnums_1.validRols,
+        enum: rolesTypeEnums_1.validRoles,
     },
     state: {
         type: Boolean,

@@ -37,7 +37,7 @@ app.get("/", (rq, res) => {
 // CREATE
 app.post("/users", 
 // Verify two conditions
-[authentication_1.verifyTokenMiddleware, authentication_1.verifyAdminRole], (rq, res) => {
+(rq, res) => {
     let body = rq.body;
     let usuario = new user_1.UserModel({
         name: body.name,
@@ -54,7 +54,7 @@ app.post("/users",
     });
 });
 // UPDATE
-app.put("/users/:id", [authentication_1.verifyTokenMiddleware, authentication_1.verifyAdminRole], (rq, res) => {
+app.put("/users/:id", [authentication_1.verifyTokenMiddleware], (rq, res) => {
     let id = rq.params.id;
     let body = _.pick(rq.body, ["name", "img", "email", "role", "state"]);
     user_1.UserModel.findByIdAndUpdate(id, body, { new: true, runValidators: true, context: "query" }, (err, usuarioDB) => {
@@ -64,7 +64,8 @@ app.put("/users/:id", [authentication_1.verifyTokenMiddleware, authentication_1.
     });
 });
 // GET ALL USER - PAGINATED (Actives)
-app.get("/users", authentication_1.verifyTokenMiddleware, (rq, res) => {
+// app.get("/users", verifyTokenMiddleware, (rq, res) => {
+app.get("/users", (rq, res) => {
     const since = rq.query.since || 0;
     const limit = rq.query.limit || 10;
     // Just return this values

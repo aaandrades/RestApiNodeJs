@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { validRols } from "../utils/rolesTypeEnums";
+import { validRoles } from "../utils/rolesTypeEnums";
 import { IUser } from "../utils/user.interface";
 
 // Import in typescript isn't working, TODO: Change require to import.
@@ -27,7 +27,7 @@ let userSchema = new Schema({
     type: String,
     default: "USER_ROLE",
     required: false,
-    enum: validRols,
+    enum: validRoles,
   },
   state: {
     type: Boolean,
