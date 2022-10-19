@@ -1,0 +1,60 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RestNodeJsApp</title>
+    <style>
+      .body-styles {
+        background-color: #3066be;
+        display: flex;
+        align-items: center;
+        color: white;
+        justify-content: center;
+        font-family: system-ui;
+        flex-direction: column;
+        padding-bottom: 50px;
+      }
+
+      .code {
+        background-color: black;
+        padding: 20px;
+        border-radius: 6px;
+        width: 80vw;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body class="body-styles">
+    <h1>Explore the API</h1>
+    <h3>Login</h3>
+    <pre class="code">
+      curl --location --request POST 'https://rest-api-node-h8c0.onrender.com/login' \
+      --header 'Authorization;' \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data-urlencode 'email=correofalso1@gmail.com' \
+      --data-urlencode 'password=123123' 
+    </pre>
+    <h3>Create user</h3>
+    <pre class="code">
+      curl --location --request POST 'https://rest-api-node-h8c0.onrender.com/login' \
+      --header 'Authorization;' \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data-urlencode 'email=correofalso1@gmail.com' \
+      --data-urlencode 'password=123123' 
+    </pre>
+    <h3>Get all users</h3>
+    <pre class="code">
+      curl --location --request GET 'https://rest-api-node-h8c0.onrender.com/users' \
+      --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJzdGF0ZSI6dHJ1ZSwiZ29vZ2xlIjpmYWxzZSwiX2lkIjoiNjBiNWFiZWFjNmNhMzMwMDA0YTRmNTQ4IiwibmFtZSI6IkdlbmVyaWMgVGVzdCIsImVtYWlsIjoiY29ycmVvZmFsc28xQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJHRRTkV4WndtYUtPTXRhdHAzOFBRR3VkWXp4dERoaHdORWVXQlFKZkkyNlJmSGNZT211eDhhIiwiX192IjowfSwiaWF0IjoxNjM0MjQxMjc4fQ.43Pmv0Pwij6sbQx9iyqM8hybc7dQKxTQPimTHdnTaGY'
+    </pre>
+    <h3>Update user</h3>
+    <pre class="code">
+      curl --location --request PUT 'https://rest-api-node-h8c0.onrender.com/users/60b5acfac6ca330004a4f549' \
+      --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJzdGF0ZSI6dHJ1ZSwiZ29vZ2xlIjpmYWxzZSwiX2lkIjoiNjBiNWFjZmFjNmNhMzMwMDA0YTRmNTQ5IiwibmFtZSI6IkdlbmVyaWMgVGVzdCIsImVtYWlsIjoiY29ycmVvZmFsc280QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDVjRG4zRzRKMUgwOTVXYU5CQ1k0THVuZzg2Qm9KeEkzWEtxRXozRVdWc0hGLjJrSUlxT25tIiwiX192IjowfSwiaWF0IjoxNjM0MTcwNzI0fQ.N-GEfYNDIfEvqtNLerOL0jSDCEiqg3hYlNlXy_jaSEU' \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data-urlencode 'name=user item' \
+      --data-urlencode 'password=123123'
+    </pre>
+  </body>
+</html>

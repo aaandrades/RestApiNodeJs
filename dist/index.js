@@ -19,7 +19,7 @@ app.use(express_1.default.urlencoded({
 // Importing routes (Controller)
 app.use(require("./routes/controller"));
 // Conect to mongoose
-mongoose_1.default.connect(process.env.URLDB, {
+mongoose_1.default.connect(process.env.URLDB || "", {
     dbName: "cafe",
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -32,5 +32,6 @@ mongoose_1.default.connect(process.env.URLDB, {
 // create a server instance:
 app.listen(process.env.PORT, () => {
     console.log(`Starting server in PORT: ${process.env.PORT}`);
+    console.log("Connecting Mongo to: ", process.env.URLDB);
 });
 //# sourceMappingURL=index.js.map

@@ -22,7 +22,7 @@ app.use(require("./routes/controller"));
 
 // Conect to mongoose
 mongoose.connect(
-  process.env.URLDB,
+  process.env.URLDB || "",
   {
     dbName: "cafe",
     useNewUrlParser: true,
@@ -38,4 +38,5 @@ mongoose.connect(
 // create a server instance:
 app.listen(process.env.PORT, () => {
   console.log(`Starting server in PORT: ${process.env.PORT}`);
+  console.log("Connecting Mongo to: ", process.env.URLDB);
 });

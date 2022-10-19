@@ -6,7 +6,6 @@ import * as jwt from "jsonwebtoken";
 const bcrypt = require("bcrypt");
 const app = express();
 
-
 app.post("/login", (req, res) => {
   let body = req.body;
 
@@ -33,7 +32,7 @@ app.post("/login", (req, res) => {
       {
         user: userDB,
       },
-      process.env.SEED,
+      process.env.SEED || "this-is-the-seed-just-local",
       {}
     );
 
@@ -41,7 +40,7 @@ app.post("/login", (req, res) => {
       ok: true,
       user: userDB,
       token,
-      tokenApi: 'k_07j13ga2'
+      tokenApi: "k_07j13ga2",
     });
   });
 });

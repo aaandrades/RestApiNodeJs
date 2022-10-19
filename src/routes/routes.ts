@@ -14,7 +14,7 @@ const app = express();
 
 // START SCREEN
 app.get("/", (rq, res) => {
-  res.send("<h1>Welcome to your server!</h1>");
+  res.sendFile("index.html", { root: __dirname });
 });
 
 // CREATE

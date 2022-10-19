@@ -11,7 +11,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || "dev";
 // ==============
 // DATABASE
 // ==============
-let urlDB;
+let urlDB: any = "";
 urlDB =
   process.env.NODE_ENV === "dev"
     ? "mongodb://localhost:27017/cafe"

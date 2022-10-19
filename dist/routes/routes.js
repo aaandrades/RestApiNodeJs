@@ -32,7 +32,7 @@ const bcrypt = require("bcrypt");
 const app = express_1.default();
 // START SCREEN
 app.get("/", (rq, res) => {
-    res.send("<h1>Welcome to your server!</h1>");
+    res.sendFile("index.html", { root: __dirname });
 });
 // CREATE
 app.post("/users", 

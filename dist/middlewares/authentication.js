@@ -24,7 +24,7 @@ const jwt = __importStar(require("jsonwebtoken"));
 // Verify Token
 const verifyTokenMiddleware = (req, res, next) => {
     let token = req.get("Authorization");
-    jwt.verify(token, process.env.SEED, (err, decode) => {
+    jwt.verify(token, process.env.SEED || "", (err, decode) => {
         // if exist some error, throw exception in validation of token
         if (err) {
             return res.status(401).json({
@@ -41,7 +41,9 @@ const verifyAdminRole = (req, res, next) => {
     const { role } = req.user;
     return role === "ADMIN_ROLE"
         ? next()
-        : res.status(401).json({ ok: false, message: "Restricted Access just for Admins" });
+        : res
+            .status(401)
+            .json({ ok: false, message: "Restricted Access just for Admins" });
 };
 exports.verifyAdminRole = verifyAdminRole;
 //# sourceMappingURL=authentication.js.map

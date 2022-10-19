@@ -10,9 +10,9 @@
     "noImplicitAny": false,
     "moduleResolution": "node",
     "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "outDir": "dist",
-    "types": [
-      "underscore"
-    ]
+    "types": ["underscore"]
   }
 }
