@@ -71,4 +71,4 @@ The delete methods you can see inside the code (Just for avoid delete users info
 To Run the app locally, clone the repository and execute ```npm install``` and ```npm run dev```.
 
 *If you want to contribute to improve the project, please create your PR and write me :speech_balloon: . After it, sit down and take a beer, you deserve it!* :beers: .
-*This project is for academic purposes only, all right reserved. Andrés Andrade 2021 :copyright::registered:*
+*This project is for academic purposes only, all right reserved. Andrés Andrade 2022 :copyright::registered:*
